@@ -9,15 +9,17 @@ body {
   font-family: "Roboto";
   /* background-color: #f8f8f8; */
 }
-
 .container-x {
-  max-width: 1216px !important;
+  max-width: 1800px !important;
   width: 100%;
+  margin: 0 auto;
+  padding-left: 61px;
+  padding-right: 61px;
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .container-x {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
-}
+} */
