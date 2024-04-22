@@ -112,7 +112,7 @@ const Footer = () => {
                                   <Image
                                       loading="lazy"
                                       src={Visa}
-                                      className="shrink-0 aspect-[1.75] w-[97px]"
+                                      className="shrink-0 aspect-[1.75] w-[50px]"
                                       width={97}
                                       height={55}
                                       alt=""
@@ -120,7 +120,7 @@ const Footer = () => {
                                   <Image
                                       loading="lazy"
                                       src={MasterCard}
-                                      className="shrink-0 aspect-[1.75] w-[97px]"
+                                      className="shrink-0 aspect-[1.75] w-[50px]"
                                       width={97}
                                       height={55}
                                       alt=""
@@ -128,7 +128,7 @@ const Footer = () => {
                                   <Image
                                       loading="lazy"
                                       src={Cash}
-                                      className="shrink-0 aspect-[1.75] w-[97px]"
+                                      className="shrink-0 aspect-[1.75] w-[50px]"
                                       width={97}
                                       height={55}
                                       alt=""
@@ -136,7 +136,7 @@ const Footer = () => {
                                   <Image
                                       loading="lazy"
                                       src={Installment}
-                                      className="shrink-0 aspect-[1.75] w-[97px]"
+                                      className="shrink-0 aspect-[1.75] w-[50px]"
                                       width={97}
                                       height={55}
                                       alt=""

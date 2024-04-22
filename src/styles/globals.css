@@ -17,6 +17,26 @@ body {
   padding-right: 61px;
 }
 
+.hero-bg{
+  background: url("https://cdn.builder.io/api/v1/image/assets/TEMP/a8bbb2a68110dffeb78217554f529c557c7b6378c350b4362900a015c06dd677?apiKey=88771a252400406bbb49e96202b34082&");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 450px;
+}
+
+.off-circle {
+  border-radius: 83px;
+background: linear-gradient(90deg, #FDC830 0%, #F37335 100%);
+}
+.category-slider-container{
+  background: linear-gradient(180deg, #F3EDC9 0%, rgba(255, 255, 255, 0.00) 100%);
+
+}
+.category-slider-card-title-container{
+  background: rgba(254, 249, 249, 0.95);
+box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.57);
+}
 /* @media (min-width: 768px) {
   .container-x {
     padding-left: 1.5rem;

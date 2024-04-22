@@ -41,7 +41,7 @@ function Category() {
                         <NavItem key={index}>{item}</NavItem>
                     ))}
                 </nav>
-                <div className="flex gap-5 justify-center my-auto">
+                <div className="flex gap-5 justify-center items-center my-auto">
                     {socialIcons.map((icon, index) => (
                         <SocialIcon
                             key={index}

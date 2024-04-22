@@ -12,7 +12,7 @@ const nextConfig = {
   },
   images: {
     domains: [
-      
+      "cdn.builder.io"
     ], // Add your image server domain here
   },
 };

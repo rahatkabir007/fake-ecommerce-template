@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { persistStore, persistReducer } from "redux-persist"; 
 import storage from "redux-persist/lib/storage";
-import { api } from "./exampleapi";
+import { api } from "./api";
 import exampleStoreSlice from "./slice/exampleSlice";
 
 const persistConfig = {
