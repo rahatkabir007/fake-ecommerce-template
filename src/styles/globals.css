@@ -12,7 +12,8 @@ body {
 .container-x {
   max-width: 1800px !important;
   width: 100%;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   padding-left: 61px;
   padding-right: 61px;
 }
@@ -36,6 +37,12 @@ background: linear-gradient(90deg, #FDC830 0%, #F37335 100%);
 .category-slider-card-title-container{
   background: rgba(254, 249, 249, 0.95);
 box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.57);
+}
+
+.wrap-text {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 /* @media (min-width: 768px) {
   .container-x {

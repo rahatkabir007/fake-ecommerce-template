@@ -15,11 +15,19 @@ export const api = createApi({
 
           }),
         }),
+      getProducts: builder.query({
+        query: () => ({
+          url: "/products",
+          method: "GET",
+
+        }),
+      }),
         
     }),
 });
 
 export const {
     useGetCategoriesQuery,
-    useLazyGetCategoriesQuery,
+  useLazyGetCategoriesQuery,
+    useLazyGetProductsQuery,
 } = api;

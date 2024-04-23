@@ -12,7 +12,8 @@ const nextConfig = {
   },
   images: {
     domains: [
-      "cdn.builder.io"
+      "cdn.builder.io",
+      "fakestoreapi.com"
     ], // Add your image server domain here
   },
 };

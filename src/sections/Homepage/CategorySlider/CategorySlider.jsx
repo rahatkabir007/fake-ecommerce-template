@@ -1,10 +1,11 @@
 import * as React from "react";
 import Image from "next/image";
-import { useGetCategoriesQuery, useLazyGetCategoriesQuery } from "@/store/api";
+import { useLazyGetCategoriesQuery } from "@/store/api";
 import Electronics from "@/assets/png/electronics.png";
 import Jewelry from "@/assets/png/jewelry.png";
 import Men from "@/assets/png/mens.png";
 import Women from "@/assets/png/womens.png";
+import Loader from "@/components/Loader/Loader";
 
 function ImageCard({ data }) {
     return (
@@ -57,21 +58,25 @@ function CategorySlider() {
                 }
             });
             setCategoryData(newCategories); 
+        }).catch(err => {
+            console.log(err)
         });
        
     },[])
     return (
         <div className="category-slider-container">
             <section className="container-x flex flex-col justify-center px-0.5 max-md:px-5">
-                <div className="flex  gap-5 justify-between py-4 pl-4 max-md:flex-wrap max-md:mr-2.5">
-                    {categoryData?.map((data, index) => (
-                        <ImageCard
-                            key={index}
-                            data={data}
-                        />
-                    ))}
+                {
+                    categoryLoading ? <Loader /> : <div className="flex gap-5 justify-between py-4 pl-4 max-md:flex-wrap max-md:mr-2.5">
+                        {categoryData?.map((data, index) => (
+                            <ImageCard
+                                key={index}
+                                data={data}
+                            />
+                        ))}
 
-                </div>
+                    </div>
+                }
             </section>
       </div>
     );
