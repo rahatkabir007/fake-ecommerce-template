@@ -7,6 +7,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Roboto";
+  overflow-x: hidden;
   /* background-color: #f8f8f8; */
 }
 .container-x {
@@ -19,7 +20,7 @@ body {
 }
 
 .hero-bg{
-  background: url("");
+  background: url("../assets/png/bg.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -56,9 +57,15 @@ background: linear-gradient(90deg, #EE9CA7 0%, #FFDDE1 100%);
   border-radius: 83px;
 background: linear-gradient(90deg, #FF512F 0%, #DD2476 100%);
 }
-/* @media (min-width: 768px) {
-  .container-x {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+
+select, input {
+  border: 0;
+  outline: 0;
+}
+
+ @media only screen and (max-width:768px) {
+ .container-x {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
   }
-} */
+}
