@@ -49,27 +49,29 @@ const BestDealProducts = () => {
   };
 
   return (
-    <div className='flex flex-col gap-6 justify-center'>
+    <div className='flex flex-col gap-6 justify-center items-center'>
       <SectionHeader coloredTitle="Best" blackTitle="Deals">
-        <nav className="flex items-center gap-3 self-stretch px-5 py-3 text-black max-md:flex-wrap">
+        <nav className="flex flex-col lg:flex-row items-start lg:items-center gap-3 self-stretch px-5 py-3 text-black max-md:flex-wrap">
           {categories.map((item) => (
             <NavItem key={item.label}>
               <span onClick={() => setActiveCategory(item?.value)} className={activeCategory === item?.value ? "text-customCyan border-b-2 border-b-customCyan" : ""}>{item.title}</span>
             </NavItem>
           ))}
-          <div
-            className='cursor-pointer'
-            onClick={selectPrevCategory}
-            style={{ opacity: categories.findIndex(cat => cat.value === activeCategory) === 0 ? 0.5 : 1 }}
-          >
-            <ArrowLeftOutlined />
-          </div>
-          <div
-            className='cursor-pointer'
-            onClick={selectNextCategory}
-            style={{ opacity: categories.findIndex(cat => cat.value === activeCategory) === categories.length - 1 ? 0.5 : 1 }}
-          >
-            <ArrowRightOutlined />
+          <div className='flex items-center gap-3'>
+            <div
+              className='cursor-pointer'
+              onClick={selectPrevCategory}
+              style={{ opacity: categories.findIndex(cat => cat.value === activeCategory) === 0 ? 0.5 : 1 }}
+            >
+              <ArrowLeftOutlined />
+            </div>
+            <div
+              className='cursor-pointer'
+              onClick={selectNextCategory}
+              style={{ opacity: categories.findIndex(cat => cat.value === activeCategory) === categories.length - 1 ? 0.5 : 1 }}
+            >
+              <ArrowRightOutlined />
+            </div>
           </div>
         </nav>
        
@@ -80,8 +82,8 @@ const BestDealProducts = () => {
         isLoading ? <div className='min-h-[50vh]'>
           <Loader/>
         </div> : <>
-          <div className="flex gap-5 max-md:flex-col max-md:gap-0 items-stretch">
-            <div className="flex flex-col gap-[15px] basis-[33%] max-md:ml-0 max-md:w-full">
+          <div className="flex gap-5 flex-col lg:flex-row max-md:gap-0 items-stretch">
+            <div className="hidden md:flex flex-col gap-[15px] basis-[33%] max-md:ml-0 max-md:w-full">
               {
                 products?.slice(0, 2)?.map((product, index) => {
                   return (
@@ -89,8 +91,18 @@ const BestDealProducts = () => {
                   )
                 })
               }
-            </div>
-            <div className="flex flex-col ml-5 basis-[33%] max-md:ml-0 max-md:w-full">
+              </div>
+              
+              <div className="flex flex-col gap-[15px] ml-5 basis-[33%] max-md:ml-0 max-md:w-full md:hidden">
+                {
+                  products?.slice(0, 2)?.map((product, index) => {
+                    return (
+                      <FilteredProductCardThree key={index} product={product} />
+                    )
+                  })
+                }
+              </div>
+            <div className="flex flex-col ml-5 basis-[33%] max-md:ml-0 max-md:w-full my-5 md:my-0">
               {
                 products?.slice(2, 3)?.map((product, index) => {
                   return (
@@ -99,7 +111,7 @@ const BestDealProducts = () => {
                 })
               }
             </div>
-            <div className="flex flex-col gap-[15px] ml-5 basis-[33%] max-md:ml-0 max-md:w-full">
+            <div className="hidden md:flex flex-col gap-[15px] ml-5 basis-[33%] max-md:ml-0 max-md:w-full">
               {
                 products?.slice(3, 5)?.map((product, index) => {
                   return (
@@ -107,7 +119,16 @@ const BestDealProducts = () => {
                   )
                 })
               }
-            </div>
+              </div>
+              <div className="flex flex-col gap-[15px] ml-5 basis-[33%] max-md:ml-0 max-md:w-full md:hidden">
+                {
+                  products?.slice(3, 5)?.map((product, index) => {
+                    return (
+                      <FilteredProductCardThree key={index} product={product} />
+                    )
+                  })
+                }
+              </div>
           </div>
         </>
        }

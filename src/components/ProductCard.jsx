@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const ProductCard = ({item}) => {
   return (
-      <div className="flex flex-col p-3.5 bg-white border border-black border-opacity-10 max-w-[190px] rounded">
+      <div className="flex flex-col p-3.5 bg-white border border-black border-opacity-10 max-w-full md:max-w-[190px] rounded">
           <div title={item?.title} className="text-xs text-black capitalize wrap-text max-w-[150px]">{item?.title}</div>
           <div title={item?.description} className="capitalize self-start mt-3 text-base text-customLightDarkTeal2 wrap-text max-w-[150px]">
              {item?.description}

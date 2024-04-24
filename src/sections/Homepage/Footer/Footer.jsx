@@ -108,7 +108,7 @@ const Footer = () => {
                               <div className="mt-3">Wishlist</div>
                               <div className="mt-3">Compare</div>
                               <div className="mt-3">Become a Vendor</div>
-                              <div className="flex gap-3 self-end mt-2.5 mr-16 max-md:flex-wrap max-md:mr-2.5">
+                              <div className="flex gap-3 self-start md:hidden lg:self-end mt-2.5 mr-16 max-md:flex-wrap max-md:mr-2.5">
                                   <Image
                                       loading="lazy"
                                       src={Visa}
