@@ -7,8 +7,11 @@ import AudioIcon from "@/assets/svg/audioIcon.svg"
 import UserIcon from "@/assets/svg/user.svg"
 import HeartIcon from "@/assets/svg/heart1.svg"
 import CartIcon from "@/assets/svg/Cart.svg"
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
+
+  const cart = useSelector(state => state.productStore.cart);
   return (
     <div className='bg-customLightDarkTeal '>
       <header className="flex flex-col lg:flex-row gap-5 justify-between py-1.5 container-x">
@@ -61,7 +64,8 @@ const Navbar = () => {
             <a href="#" aria-label="Compare">
               <Image src={HeartIcon} alt="Wishlist icon" className="shrink-0 self-stretch my-auto w-6 aspect-square" />
             </a>
-            <div className="flex gap-0.5 justify-center items-center self-stretch">
+            <div className="flex  relative gap-0.5 justify-center items-center self-stretch">
+              <span className='text-customBeige absolute inset-0 left-[-1.5rem] top-[-0.5rem]'>{cart?.length}</span>
               <Image src={CartIcon} alt="Cart icon" className="shrink-0 aspect-[0.69] w-[25px]" />
               <span className="">Cart</span>
             </div>
