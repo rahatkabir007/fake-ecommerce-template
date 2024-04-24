@@ -1,21 +1,25 @@
+import React, { useEffect, useState } from 'react'
 import FilteredProductCardOne from '@/components/FilteredProductCardOne';
 import FilteredProductCardThree from '@/components/FilteredProductCardThree';
 import FilteredProductCardTwo from '@/components/FilteredProductCardTwo';
 import SectionHeader from '@/components/SectionHeader';
 import { categories } from '@/data/categories';
 import { useLazyGetProductsByCategoryQuery } from '@/store/api';
-import React, { useEffect, useState } from 'react'
-
+import Loader from '@/components/Loader/Loader';
+import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 const BestDealProducts = () => {
 
-  const [getProductsByCategory, { isLoading }] = useLazyGetProductsByCategoryQuery();
+  const [getProductsByCategory] = useLazyGetProductsByCategoryQuery();
 
   const [products, setProducts] = useState([])
+  const [isLoading,setIsLoading] = useState(false)
   const [activeCategory, setActiveCategory] = useState('electronics')
 
   useEffect(() => {
+    setIsLoading(true)
     getProductsByCategory(activeCategory).then(res => {
       setProducts(res?.data)
+      setIsLoading(false)
     }).catch(err => {
       console.log(err)
     })
@@ -23,7 +27,7 @@ const BestDealProducts = () => {
 
 
   const NavItem = ({ children }) => (
-    <div className="justify-center text-xl uppercase leading-[53px] max-md:flex-wrap cursor-pointer">
+    <div className="justify-center text-xl uppercase leading-[53px] max-md:flex-wrap cursor-pointer py-2">
       {children}
     </div>
   );
@@ -45,59 +49,68 @@ const BestDealProducts = () => {
   };
 
   return (
-    <div className='flex flex-col gap-6'>
+    <div className='flex flex-col gap-6 justify-center'>
       <SectionHeader coloredTitle="Best" blackTitle="Deals">
         <nav className="flex items-center gap-3 self-stretch px-5 py-3 text-black max-md:flex-wrap">
-          {categories.map((item,index) => (
+          {categories.map((item) => (
             <NavItem key={item.label}>
-              <span onClick={() => setActiveCategory(item?.value)} className={activeCategory === item?.value ? "text-cyan-500" : ""}>{item.title}</span>
+              <span onClick={() => setActiveCategory(item?.value)} className={activeCategory === item?.value ? "text-customCyan border-b-2 border-b-customCyan" : ""}>{item.title}</span>
             </NavItem>
           ))}
-          {/* <img
-            onClick={() => {
-              setActiveCategory('electronics')
-            }}
-            loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/84d8b42d91813dd89d59b4b2cc6ef374502fd0193dddb76329996141e96f8c3d?apiKey=88771a252400406bbb49e96202b34082&"
-            alt=""
-            className="shrink-0 self-stretch my-auto w-11 aspect-[3.13] cursor-pointer"
-          /> */}
-          <span onClick={selectPrevCategory}>Prev Item</span>
-          <span onClick={selectNextCategory}>Next Item</span>
+          <div
+            className='cursor-pointer'
+            onClick={selectPrevCategory}
+            style={{ opacity: categories.findIndex(cat => cat.value === activeCategory) === 0 ? 0.5 : 1 }}
+          >
+            <ArrowLeftOutlined />
+          </div>
+          <div
+            className='cursor-pointer'
+            onClick={selectNextCategory}
+            style={{ opacity: categories.findIndex(cat => cat.value === activeCategory) === categories.length - 1 ? 0.5 : 1 }}
+          >
+            <ArrowRightOutlined />
+          </div>
         </nav>
        
       </SectionHeader> 
 
      
-        <div className="flex gap-5 max-md:flex-col max-md:gap-0 items-stretch">
-          <div className=" flex flex-col gap-[15px] basis-[33%] max-md:ml-0 max-md:w-full">
-            {
-              products?.slice(0, 2)?.map((product, index) => {
-                return (
-                  <FilteredProductCardOne key={index} product={product} />
-                )
-              })
-            }
+      {
+        isLoading ? <div className='min-h-[50vh]'>
+          <Loader/>
+        </div> : <>
+          <div className="flex gap-5 max-md:flex-col max-md:gap-0 items-stretch">
+            <div className="flex flex-col gap-[15px] basis-[33%] max-md:ml-0 max-md:w-full">
+              {
+                products?.slice(0, 2)?.map((product, index) => {
+                  return (
+                    <FilteredProductCardOne key={index} product={product} />
+                  )
+                })
+              }
+            </div>
+            <div className="flex flex-col ml-5 basis-[33%] max-md:ml-0 max-md:w-full">
+              {
+                products?.slice(2, 3)?.map((product, index) => {
+                  return (
+                    <FilteredProductCardThree key={index} product={product} />
+                  )
+                })
+              }
+            </div>
+            <div className="flex flex-col gap-[15px] ml-5 basis-[33%] max-md:ml-0 max-md:w-full">
+              {
+                products?.slice(3, 5)?.map((product, index) => {
+                  return (
+                    <FilteredProductCardTwo key={index} product={product} />
+                  )
+                })
+              }
+            </div>
           </div>
-          <div className="flex flex-col ml-5 basis-[33%] max-md:ml-0 max-md:w-full">
-            {
-              products?.slice(2, 3)?.map((product, index) => {
-                return (
-                  <FilteredProductCardThree key={index} product={product} />
-                )
-              })
-            }
-          </div>
-          <div className="flex flex-col gap-[15px] ml-5 basis-[33%] max-md:ml-0 max-md:w-full">
-            {
-              products?.slice(3, 5)?.map((product, index) => {
-                return (
-                  <FilteredProductCardTwo key={index} product={product} />
-                )
-              })
-            }
-          </div>
-        </div>
+        </>
+       }
 
     </div>
   )

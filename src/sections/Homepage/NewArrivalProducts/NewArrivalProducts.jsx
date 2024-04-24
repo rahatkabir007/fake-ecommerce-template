@@ -19,16 +19,17 @@ const NewArrivalProducts = () => {
     },[])
     
   return (
-      <div className='flex flex-col gap-6'>
+      <div className='flex flex-col gap-6 justify-center'>
           <SectionHeader coloredTitle="New" blackTitle="Arrivals" titleClassName='px-10' />
-        
-          <div className='grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-[31px]'>
-              {
-                  isLoading ? <Loader /> : products?.slice(0,10)?.map(product => (
+          {
+              isLoading ? <Loader /> : <div className='grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-[31px]'>
+                  {products?.slice(0, 10)?.map(product => (
                       <ProductCard key={product?.id} item={product} />
                   ))
-        }      
-          </div>
+                  }
+              </div>
+        }
+        
     </div>
   )
 }

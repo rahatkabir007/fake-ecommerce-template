@@ -3,8 +3,8 @@ import React from 'react'
 
 const FilteredProductCardTwo = ({product}) => {
   return (
-      <div className="px-6 py-5 bg-white border border-solid border-black border-opacity-10 ">
-          <div className="flex gap-5 max-md:flex-col max-md:gap-0">
+      <div className="px-6 py-5 bg-white border border-solid border-black border-opacity-10 min-h-[290px]">
+          <div className="flex gap-5 max-md:flex-col max-md:gap-0 justify-between">
               <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
                   <div className="flex flex-col">
                       <div className="flex flex-col gap-1 text-4xl text-zinc-900">
@@ -12,7 +12,7 @@ const FilteredProductCardTwo = ({product}) => {
                           <span className="text-zinc-900">Offer</span>
                       </div>
                       <div className="text-xl leading-8 wrap-text max-w-[200px]">
-                          <span className="text-xl">{product?.title}</span>
+                          <span title={product?.title} className="text-xl wrap-text max-w-[100px]">{product?.title}</span>
                           <br />
                           <span className="text-3xl text-red-600">Rs.{product?.price}</span>
                           <br />

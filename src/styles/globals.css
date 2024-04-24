@@ -51,6 +51,11 @@ box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.57);
   border-radius: 83px;
 background: linear-gradient(90deg, #EE9CA7 0%, #FFDDE1 100%);
 }
+
+.save-3{
+  border-radius: 83px;
+background: linear-gradient(90deg, #FF512F 0%, #DD2476 100%);
+}
 /* @media (min-width: 768px) {
   .container-x {
     padding-left: 1.5rem;
