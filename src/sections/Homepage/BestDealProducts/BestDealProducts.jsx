@@ -68,10 +68,9 @@ const BestDealProducts = () => {
        
       </SectionHeader> 
 
-      
-      <div className="justify-center px-20 pb-12 max-md:px-5">
-        <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-          <div className="flex flex-col gap-[15px] basis-[33%] max-md:ml-0 max-md:w-full">
+     
+        <div className="flex gap-5 max-md:flex-col max-md:gap-0 items-stretch">
+          <div className=" flex flex-col gap-[15px] basis-[33%] max-md:ml-0 max-md:w-full">
             {
               products?.slice(0, 2)?.map((product, index) => {
                 return (
@@ -99,36 +98,7 @@ const BestDealProducts = () => {
             }
           </div>
         </div>
-      </div>
-      {/* <div className='flex flex-wrap flex-col md:flex-row items-start gap-[15px] w-full'>
-        <div className='flex flex-col gap-[15px] order-2 md:order-1'>
-          {
-            products?.slice(0, 2)?.map((product, index) => {
-              return (
-                <FilteredProductCardOne key={index} product={product} />
-              )
-            })
-          }
-          </div>
-        <div className='order-1 md:order-2'>
-          {
-            products?.slice(2, 3)?.map((product, index) => {
-              return (
-                <FilteredProductCardThree key={index} product={product} />
-              )
-            })
-          }
-          </div>
-        <div className='flex flex-col gap-[15px] order-3'>
-          {
-            products?.slice(3, 5)?.map((product, index) => {
-              return (
-                <FilteredProductCardTwo key={index} product={product} />
-              )
-            })
-          }
-        </div>
-      </div> */}
+
     </div>
   )
 }

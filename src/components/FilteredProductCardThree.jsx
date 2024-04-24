@@ -3,7 +3,7 @@ import Image from "next/image";
 
 function FilteredProductCardThree({product}) {
     return (
-        <div className="flex flex-col px-6 pt-6 pb-2.5 text-xl leading-8 text-teal-500 bg-white border border-solid border-black border-opacity-10 max-w-[414px]">
+        <div className="flex flex-col px-6 py-5 text-xl leading-8 text-teal-500 bg-white border border-solid border-black border-opacity-10 min-h-[600px]">
             <Image
                 loading="lazy"
                 src={product?.image}
