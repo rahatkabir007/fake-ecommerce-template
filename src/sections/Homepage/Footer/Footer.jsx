@@ -41,7 +41,7 @@ const Footer = () => {
                                   <br />
                                   <span className="text-base">info@winstore.pk</span>
                               </div>
-                              <div className="flex gap-5 justify-center pr-20 mt-3.5 max-md:pr-5">
+                              <div className="flex gap-5 justify-start pr-20 mt-3.5 max-md:pr-5">
                                   <Image
                                       loading="lazy"
                                       src={FacebookIcon}
