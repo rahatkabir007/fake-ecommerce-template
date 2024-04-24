@@ -7,12 +7,12 @@ const FilteredProductCardOne = ({ product }) => {
           <div className="flex gap-5 justify-between py-px">
               <div className="flex flex-col gap-2 text-xl leading-8 text-black">
                   <span title={product?.title} className="text-xl wrap-text max-w-[300px]">{product?.title}</span>
-                  <span className="text-3xl text-sky-500">Rs.{product?.price}</span>
+                  <span className="text-3xl text-customSkyBlue">Rs.{product?.price}</span>
                   <span className="text-lg">Rs. <span className="text-lg line-through">{product?.price + 200}</span></span>
                
               </div>
-              <div className="text-4xl text-zinc-900 flex flex-col gap-1 basis-[30%]">
-                  <span className="text-teal-500">Special</span> <span className="text-zinc-900">Offer</span>
+              <div className="text-4xl text-black flex flex-col gap-1 basis-[30%]">
+                  <span className="text-customCyan">Special</span> <span className="text-zinc-900">Offer</span>
               </div>
           </div>
           <div className="flex gap-5 justify-between pr-3 text-2xl text-center text-zinc-900">
