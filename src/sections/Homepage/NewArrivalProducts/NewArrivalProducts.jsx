@@ -24,7 +24,7 @@ const NewArrivalProducts = () => {
         
           <div className='grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-[31px]'>
               {
-                  isLoading ? <Loader /> : products?.map(product => (
+                  isLoading ? <Loader /> : products?.slice(0,10)?.map(product => (
                       <ProductCard key={product?.id} item={product} />
                   ))
         }      

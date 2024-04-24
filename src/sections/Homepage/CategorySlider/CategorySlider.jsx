@@ -6,6 +6,8 @@ import Jewelry from "@/assets/png/jewelry.png";
 import Men from "@/assets/png/mens.png";
 import Women from "@/assets/png/womens.png";
 import Loader from "@/components/Loader/Loader";
+import { useDispatch } from "react-redux";
+import { setCategoryList } from "@/store/slice/productSlice";
 
 function ImageCard({ data }) {
     return (
@@ -47,6 +49,7 @@ function CategorySlider() {
 
     const [getCategories, { isLoading: categoryLoading }] = useLazyGetCategoriesQuery();
     const [categoryData, setCategoryData] = React.useState([]);
+    const dispatch = useDispatch();
     
     React.useEffect(() => {
         getCategories().then(res => {
@@ -58,6 +61,7 @@ function CategorySlider() {
                 }
             });
             setCategoryData(newCategories); 
+            dispatch(setCategoryList(newCategories))
         }).catch(err => {
             console.log(err)
         });
