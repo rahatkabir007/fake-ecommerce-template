@@ -33,10 +33,10 @@ function Category() {
 
     return (
         <div className=" shadow-sm bg-customDarkTeal">
-            <header className="flex z-10 gap-5 justify-between container-x py-1 ">
-                <nav className="flex gap-5 justify-between items-center p-1.5 text-sm text-white max-md:flex-wrap">
-                    <div className="flex gap-3 self-stretch p-2 text-lg rounded-lg">
-                        <Image 
+            <header className="flex flex-col md:flex-row  z-10 gap-5 justify-start md:justify-between items-start md:items-center container-x py-1 ">
+                <div className="flex flex-col md:flex-row">
+                    <div className="flex gap-3 self-stretch p-2 text-lg rounded-lg text-white">
+                        <Image
                             width={100}
                             height={100}
                             loading="lazy"
@@ -46,11 +46,14 @@ function Category() {
                         />
                         <div>Browse By Category</div>
                     </div>
-                    {navItems.map((item, index) => (
-                        <NavItem key={index}>{item}</NavItem>
-                    ))}
-                </nav>
-                <div className="flex gap-5 justify-center items-center my-auto">
+                    <nav className="flex gap-5 justify-between items-center p-1.5 text-sm text-white max-md:flex-wrap">
+
+                        {navItems.map((item, index) => (
+                            <NavItem key={index}>{item}</NavItem>
+                        ))}
+                    </nav>
+             </div>
+                <div className="flex gap-5 justify-center items-center mb-2 md:my-auto ">
                     {socialIcons.map((icon, index) => (
                         <SocialIcon
                             key={index}

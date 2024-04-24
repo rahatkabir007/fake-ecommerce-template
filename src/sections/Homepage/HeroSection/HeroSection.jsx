@@ -18,7 +18,7 @@ const HeroSection = () => {
                             View More
                         </button>
                     </div>
-                    <div className='basis-[15%] 5'>
+                    <div className='basis-[15%] hidden md:block'>
                         <div className="off-circle flex justify-center items-center self-start px-7 text-5xl text-center text-white whitespace-nowrap h-[162px] w-[162px] max-md:px-5 max-md:text-4xl mb-0 lg:mb-32">
                             40% <br /> Off
                         </div>
