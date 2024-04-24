@@ -11,7 +11,7 @@ import CartIcon from "@/assets/svg/Cart.svg"
 const Navbar = () => {
   return (
     <div className='bg-customLightDarkTeal '>
-      <header className="flex flex-col md:flex-row gap-5 justify-between py-1.5 container-x">
+      <header className="flex flex-col lg:flex-row gap-5 justify-between py-1.5 container-x">
         <div className="flex gap-5 justify-between my-auto max-md:flex-wrap">
           <Image src={Logo} alt="Logo" className="shrink-0 max-w-full aspect-[2.78] w-[133px]" />
           <div className="flex flex-col justify-center my-auto max-md:max-w-full">
