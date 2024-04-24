@@ -32,7 +32,7 @@ function CategorySlider() {
         <div className="category-slider-container">
             <section className="container-x flex flex-col justify-center px-0.5 max-md:px-5">
                 {
-                    categoryLoading ? <Loader /> : <div className="flex gap-5 justify-between py-4 pl-4 max-md:flex-wrap max-md:mr-2.5">
+                    categoryLoading ? <Loader /> : <div className="flex gap-5 flex-col  md:flex-row justify-between py-4 pl-4 ">
                         {categoryData?.map((data, index) => (
                             <CategoryImageCard
                                 key={index}
